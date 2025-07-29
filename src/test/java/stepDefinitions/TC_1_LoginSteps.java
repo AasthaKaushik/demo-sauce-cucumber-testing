@@ -7,7 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginSteps {
+public class TC_1_LoginSteps {
     @Given("I am on shopping site")
     public void navigateToShoppingSite() {
         DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/account/login");
