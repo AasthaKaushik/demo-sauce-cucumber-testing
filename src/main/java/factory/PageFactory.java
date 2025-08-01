@@ -1,10 +1,13 @@
 package factory;
 
+import pages.CreateAccountPage;
 import pages.ForgetPasswordPage;
+import pages.HomePage;
 import pages.LoginPage;
 public class PageFactory {
     static ThreadLocal<LoginPage> LoginPageTL = new ThreadLocal<LoginPage>();
-    //static ThreadLocal<HomePage> HomePageTL = new ThreadLocal<HomePage>();
+    static ThreadLocal<CreateAccountPage> CreateAccountTL = new ThreadLocal<CreateAccountPage>();
+    static ThreadLocal<HomePage> HomePageTL = new ThreadLocal<HomePage>();
     static ThreadLocal<ForgetPasswordPage> ForgetPasswordPageTL = new ThreadLocal<ForgetPasswordPage>();
 
     public static LoginPage getLoginPage() {
@@ -20,10 +23,16 @@ public class PageFactory {
         }
         return ForgetPasswordPageTL.get();
     }
-    /*public static HomePage getHomePage() {
+    public static CreateAccountPage getCreateAccountPage() {
+        if(CreateAccountTL.get()==null) {
+            CreateAccountTL.set(new CreateAccountPage());
+        }
+        return CreateAccountTL.get();
+    }
+    public static HomePage getHomePage() {
         if(HomePageTL.get()==null) {
             HomePageTL.set(new HomePage());
         }
         return HomePageTL.get();
-    }*/
+    }
 }
